@@ -1,3 +1,5 @@
+import { updateGround, setupGround } from "./ground.js";
+
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
 
@@ -11,6 +13,7 @@ const update = (time) => {
     return;
   }
   const delta = time - lastTime;
+  updateGround(delta);
   lastTime = time;
   window.requestAnimationFrame(update);
 };
@@ -18,6 +21,7 @@ window.requestAnimationFrame(update);
 
 setPixelToWorldScale();
 window.addEventListener("resize", setPixelToWorldScale);
+setupGround();
 function setPixelToWorldScale() {
   let worldToPixelScale;
   if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
