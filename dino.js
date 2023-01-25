@@ -56,6 +56,12 @@ function handleJump(delta) {
   yVelocity -= GRAVITY * delta;
 }
 
+export function setDinoLose() {
+  dinoElem.src = "imgs/dino-lose.png";
+}
+export function getDinoRect() {
+  return dinoElem.getBoundingClientRect();
+}
 function onJump(e) {
   if (e.code !== "Space" || isJumping) return;
 
